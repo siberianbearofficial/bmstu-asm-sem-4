@@ -16,9 +16,10 @@ DispMsg:
     mov ds, ax ; установка DS
     mov dx, offset HelloMessage ; DS:DX - адрес строки
     mov ah, 09h ; выдать на дисплей строку
-    int 21h ; вызов функции DOS
-    int 21h ; вызов функции DOS
-    int 21h ; вызов функции DOS
+    mov cx, 3
+    label1:
+        int 21h ; вызов функции DOS
+        loop label1
     mov ah, 07h ; ввести символ без эха
     int 21h ; вызов функции DOS
     mov ah, 4Ch ; завершить процесс
