@@ -2,6 +2,8 @@ utils
 *.exe
 *.com
 *.obj
+*.o
 *.EXE
 *.COM
 *.OBJ
+*.O
