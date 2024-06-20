@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Объявление ассемблерной функции
-extern long add_numbers(long a, long b);
+extern void *my_strnmove(char *destptr, const char *srcptr, size_t num);  // объявление ассемблерной функции
 
 long my_strlen(char *str) {
     long len;
@@ -27,9 +26,13 @@ long my_strlen(char *str) {
 }
 
 int main(void) {
-    char s[] = "Hi bro I'm here";
+    char s[] = "Hello World!";
     long len = my_strlen(s);
     printf("Strlen: %ld\n", len);
+
+    char s2[50];
+    my_strnmove(s2, s, len);
+    printf("Strnmove: %s\n", s2);
 
     return EXIT_SUCCESS;
 }

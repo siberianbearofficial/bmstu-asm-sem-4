@@ -145,7 +145,7 @@ int main() {
 1. Компиляция ассемблерного кода в объектный файл:
 
     ```sh
-    nasm -fmacho64 -o add.o add.asm
+    nasm -fmacho64 -o add.o strnmove.asm
     ```
 
 2. Компиляция кода на языке C в объектный файл:
