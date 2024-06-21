@@ -16,16 +16,16 @@ asm : $(SRC_32) $(SRC_64)
 	$(CC) -O0 -S  -fverbose-asm $(SRC_64) -mno-80387
 
 %.o : %.c
-	gcc -O0 -c $^
+	$(CC) -O0 -c $^
 
 auto_m80387: $(SRC)
-	gcc $^ -lstdc++ -o auto_m80387.exe
+	$(CC) $^ -lstdc++ -o auto_m80387.exe
 
 m80387: $(SRC)
-	gcc $^ -lstdc++ -o m80387.exe
+	$(CC) $^ -lstdc++ -o m80387.exe
 
 no_m80387: $(SRC)
-	gcc $^ -lstdc++ -o no_m80387.exe
+	$(CC) $^ -lstdc++ -o no_m80387.exe
 
 clean:
-	rm -rf *.asm *.o *.exe
+	$(RM) -rf *.asm *.o *.exe
