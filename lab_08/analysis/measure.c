@@ -71,7 +71,7 @@ long measure_double(double a, double b, double_func f) {
 }
 
 void measure_sinus_pi(float pi) {
-    printf("-- pi = %f\t\tc: %f\tasm: %f\n", pi, sin_c(pi), sin_asm(pi));
+    printf("-- pi = %lf\t\tc: %lf\tasm: %lf\n", pi, sin_c(pi), sin_asm(pi));
 }
 
 void measure_sinus_fldpi() {
@@ -83,7 +83,7 @@ void measure_sinus_fldpi() {
 
         : "=m"(result)
     );
-    printf("-- fldpi: %f\n", result);
+    printf("-- fldpi: %lf\n", result);
 }
 
 void measure_sinus_fldpi_2() {
@@ -98,5 +98,5 @@ void measure_sinus_fldpi_2() {
         : "=m"(result)
         : "m"(a)
     );
-    printf("-- fldpi / 2: %f\n", result);
+    printf("-- fldpi / 2: %lf\n", result);
 }
