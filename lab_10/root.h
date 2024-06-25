@@ -8,6 +8,6 @@
 
 #define EPS 1e-6
 
-void str_func_root(char *start, char *end, char *step_count);
+void root_str(char *a_str, char *b_str, char *steps_str);
 
 #endif //ROOT_H
