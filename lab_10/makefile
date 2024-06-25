@@ -22,3 +22,6 @@ comp_c:
 
 link: comp_nasm comp_c
 	$(CC) *.o $(LINK_FLAGS) -o $(OUT)
+
+clean:
+	rm -f *.o *.exe
