@@ -3,8 +3,8 @@ global main
 global steps_buffer
 
 %define GTK_WIN_POS_CENTER 1
-%define GTK_WIN_WIDTH 700
-%define GTK_WIN_HEIGHT 450
+%define GTK_WIN_WIDTH 210
+%define GTK_WIN_HEIGHT 290
 
 extern exit
 extern gtk_init
@@ -59,8 +59,8 @@ section .rodata
     signal:
     .destroy: db "destroy", 0
     .clicked: db "clicked", 0
-    title: db "Корни функции", 0
-    task_text: db "Функция: cos(x^3 + 7)", 0
+    title: db "Корень", 0
+    task_text: db "cos(x^3 + 7)", 0
     btn_result_text: db "Найти корень", 0
     result: db "Результат: ", 0
     a_input_ph: db "a", 0
@@ -73,6 +73,10 @@ section .data
     start: dq 1
     end: dq 1
     step_count: dq 1
+
+    PADDING_START equ 20
+    PADDING_TOP equ 20
+    GAP equ 45
 
 section .text
 
@@ -155,8 +159,8 @@ section .text
 
         mov rsi, rax
         mov rdi, qword [ rel layout ]
-        mov rdx, 200
-        mov rcx, 100
+        mov rdx, PADDING_START
+        mov rcx, PADDING_TOP
         call gtk_layout_put
 
 
@@ -173,8 +177,8 @@ section .text
 
         mov rdi, qword [ rel layout ]
         mov rsi, qword [ rel entry_1 ]
-        mov rdx, 200
-        mov rcx, 200
+        mov rdx, PADDING_START
+        mov rcx, PADDING_TOP + GAP
         call gtk_layout_put
 
 
@@ -189,8 +193,8 @@ section .text
 
         mov rdi, qword [ rel layout ]
         mov rsi, qword [ rel entry_2 ]
-        mov rdx, 200
-        mov rcx, 250
+        mov rdx, PADDING_START
+        mov rcx, PADDING_TOP + 2 * GAP
         call gtk_layout_put
 
         xor rdi, rdi
@@ -204,8 +208,8 @@ section .text
 
         mov rdi, qword [ rel layout ]
         mov rsi, qword [ rel entry_3 ]
-        mov rdx, 200
-        mov rcx, 300
+        mov rdx, PADDING_START
+        mov rcx, PADDING_TOP + 3 * GAP
         call gtk_layout_put
 
         mov rdi, btn_result_text
@@ -215,8 +219,8 @@ section .text
 
         mov rdi, qword [ rel layout ]
         mov rsi, qword [ rel calc_btn ]
-        mov rdx, 200
-        mov rcx, 350
+        mov rdx, PADDING_START
+        mov rcx, PADDING_TOP + 4 * GAP
         call gtk_layout_put
 
 
@@ -235,8 +239,8 @@ section .text
 
         mov rdi, qword [ rel layout ]
         mov rsi, qword [ rel result_label_text ]
-        mov rdx, 200
-        mov rcx, 400
+        mov rdx, PADDING_START
+        mov rcx, PADDING_TOP + 5 * GAP
         call gtk_layout_put
 
         xor rdi, rdi
@@ -245,8 +249,8 @@ section .text
 
         mov rdi, qword [ rel layout ]
         mov rsi, qword [ rel result_label ]
-        mov rdx, 250
-        mov rcx, 400
+        mov rdx, PADDING_START + 100
+        mov rcx, PADDING_TOP + 5 * GAP
         call gtk_layout_put
 
 
