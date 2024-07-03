@@ -50,10 +50,10 @@ double root(double a, double b, int steps) {
         // if f_a * f_mid < 0:
         "fldl %4;"
         "fmull %5;"          // умножаем на значение в точке a
-        "ftst;"
-        "fstsw %%ax;"
+        "ftst;"              // сравниваем вершину стека с нулем
+        "fstsw %%ax;"        // помещаем регистр состояния FPU в ax
         "fstpl %0;"          // убираем f_a * f_mid из стека
-        "sahf;"
+        "sahf;"              // помещаем данные ax в регистр флагов
         "jb set_b;"  // если меньше 0, b = mid
         "jmp set_a;"  // иначе a = mid
 
